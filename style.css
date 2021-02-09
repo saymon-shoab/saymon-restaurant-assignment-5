@@ -3,18 +3,22 @@ body{
     padding: 0px;
     background-color: #f0db65;
 }
+button{
+    background-color: #b460f0;
+}
 .result-heading {
   display: grid;
   grid-template-columns:repeat(3 ,1fr)  ;
   grid-gap: 20px ;
   margin-top: 20px;
 }
- .meal {
-    cursor: pointer; 
-    position: relative;
-    text-align: center;
-} 
-
+ 
 .imgSize{
     width:250px;
+}
+
+
+.showDesign{
+   margin-left: auto;
+    text-align: center;
 }

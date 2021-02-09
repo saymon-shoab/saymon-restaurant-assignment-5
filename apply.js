@@ -12,10 +12,10 @@ const searchFood =() =>{
          const meal = meals[i];
          const div = document.createElement('div');
          div.innerHTML=`
-          <div class="meal">
+          <div onclick="moreFoodDetails('${meal.strMeal}')" class="meal">
           <img class="imgSize" src="${meal.strMealThumb}" alt="${meal.strMeal}">
           <div class="meal-info">
-          <h3>${meal.strMeal}</h3>
+          <h>${meal.strMeal}</h4>
           </div>
           </div>
           `;
@@ -24,7 +24,25 @@ const searchFood =() =>{
      }
  }
 
+ const moreFoodDetails =mealId =>{
+     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${mealId}`
+      fetch(url)
+      .then(res=>res.json())
+      .then(data=> renderFoodInfo(data.meals[0]));
+ }
 
+ const renderFoodInfo = show=>{
+     console.log(show);
+     const lookDiv=document.getElementById('lookDetails')
+     lookDiv.innerHTML=`
+     <div class="showDesign">
+     <img class="imgSize" src="${show.strMealThumb}" alt="${show.strMeal}">
+     <h5>${show.strMeal}</h5>
+     <p>${show.strArea}</p>
+     <p>${show.strInstructions}</p>
+     </div>
+     `
+ }
 
 
 
